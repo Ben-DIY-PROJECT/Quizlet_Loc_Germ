@@ -1,0 +1,103 @@
+.dropbox-root {
+    -fx-padding: 20;
+}
+
+.top-bar {
+    -fx-padding: 10;
+    -fx-background-color: transparent;
+}
+
+.title-box {
+    -fx-alignment: center-left;
+    -fx-pref-width: 300px;
+}
+
+.info-button {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+    -fx-min-width: 32;
+    -fx-min-height: 32;
+    -fx-background-radius: 16;
+    -fx-cursor: hand;
+}
+
+.info-button:hover {
+    -fx-background-color: #333333;
+}
+
+.title-style {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+    -fx-translate-x: 135px;
+}
+
+.drop-area {
+    -fx-border-color: gray;
+    -fx-border-width: 2;
+    -fx-border-style: dashed;
+    -fx-pref-width: 450;
+    -fx-pref-height: 300;
+    -fx-alignment: center;
+}
+
+.center-box {
+    -fx-alignment: center;
+    -fx-spacing: 12;
+}
+
+.plus-label {
+    -fx-font-size: 48;
+}
+
+.hint-label {
+    -fx-font-size: 18;
+    -fx-text-fill: #666666;
+}
+
+.reading-root {
+    -fx-padding: 20;
+}
+
+.reading-title {
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+}
+
+.reading-center {
+    -fx-alignment: center;
+    -fx-spacing: 30;
+}
+
+.german-word {
+    -fx-font-size: 32;
+    -fx-font-weight: bold;
+}
+
+.nav-button {
+    -fx-font-size: 18;
+    -fx-min-width: 40;
+    -fx-min-height: 40;
+}
+
+.reading-bottom {
+    -fx-alignment: center;
+    -fx-spacing: 10;
+}
+
+.trans-word {
+    -fx-font-size: 24;
+    -fx-font-weight: bold;
+}
+
+.eye-button {
+    -fx-font-size: 14;
+    -fx-cursor: hand;
+}
+
+.exit-button {
+    -fx-font-size: 14;
+    -fx-cursor: hand;
+}
