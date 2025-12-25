@@ -21,5 +21,3 @@ The project emphasizes clean MVC architecture, local data storage, and an intuit
 - JavaFX  
 - MVC design pattern  
 - Git & GitHub for version control
-
----
