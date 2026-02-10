@@ -1,6 +1,7 @@
 package model.Words;
 
 public class WordPairImpl implements WordPair {
+
   private final String German;
   private final String English;
   private final String WordType;
@@ -25,7 +26,6 @@ public class WordPairImpl implements WordPair {
   public String getType() {
     return WordType;
   }
-  ;
 
   @Override
   public String toString() {

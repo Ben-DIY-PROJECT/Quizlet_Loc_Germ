@@ -68,14 +68,13 @@ public class ReadingView implements FXComponent {
       eyeButton.setText("Show");
     }
 
-    eyeButton.setOnAction(
-        e -> {
-          if (model.isTranslationVisible()) {
-            controller.hidetrans();
-          } else {
-            controller.showtrans();
-          }
-        });
+    eyeButton.setOnAction(e -> {
+      if (model.isTranslationVisible()) {
+        controller.hidetrans();
+      } else {
+        controller.showtrans();
+      }
+    });
 
     VBox bottomBox = new VBox(englishLabel, eyeButton);
     bottomBox.getStyleClass().add("reading-bottom");

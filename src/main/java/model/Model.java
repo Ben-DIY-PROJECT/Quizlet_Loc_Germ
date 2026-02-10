@@ -29,8 +29,6 @@ public interface Model extends Subject {
   void reset();
 
   enum STATUS {
-    NO_FILE,
-    LOADING,
-    READING
+    NO_FILE, LOADING, READING
   }
 }

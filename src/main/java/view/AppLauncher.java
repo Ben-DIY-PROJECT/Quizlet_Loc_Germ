@@ -4,7 +4,6 @@ import controller.Controller;
 import controller.ControllerImpl;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import model.Model;
 import model.ModelImpl;

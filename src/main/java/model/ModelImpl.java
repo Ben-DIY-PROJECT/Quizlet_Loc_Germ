@@ -41,13 +41,15 @@ public class ModelImpl implements Model {
 
   @Override
   public int getCurrentIndex() {
-    if (status != STATUS.READING) return 0;
+    if (status != STATUS.READING)
+      return 0;
     return currentIndex + 1;
   }
 
   @Override
   public int getTotalNum() {
-    if (status != STATUS.READING) return 0;
+    if (status != STATUS.READING)
+      return 0;
     return words.size();
   }
 
@@ -78,7 +80,8 @@ public class ModelImpl implements Model {
 
   @Override
   public void nextCard() {
-    if (status != STATUS.READING) return;
+    if (status != STATUS.READING)
+      return;
 
     if (currentIndex < words.size() - 1) {
       currentIndex++;
@@ -89,7 +92,8 @@ public class ModelImpl implements Model {
 
   @Override
   public void prevCard() {
-    if (status != STATUS.READING) return;
+    if (status != STATUS.READING)
+      return;
 
     if (currentIndex > 0) {
       currentIndex--;
@@ -100,7 +104,8 @@ public class ModelImpl implements Model {
 
   @Override
   public void showTranslation() {
-    if (status != STATUS.READING) return;
+    if (status != STATUS.READING)
+      return;
 
     translationVisible = true;
     notifyObservers();
@@ -108,7 +113,8 @@ public class ModelImpl implements Model {
 
   @Override
   public void hideTranslation() {
-    if (status != STATUS.READING) return;
+    if (status != STATUS.READING)
+      return;
 
     translationVisible = false;
     notifyObservers();

@@ -61,35 +61,33 @@ public class DropBoxView implements FXComponent {
     dropArea.getChildren().add(centerBox);
     root.setCenter(dropArea);
 
-    dropArea.setOnDragOver(
-        e -> {
-          if (e.getDragboard().hasFiles()) {
-            e.acceptTransferModes(TransferMode.COPY);
-          }
+    dropArea.setOnDragOver(e -> {
+      if (e.getDragboard().hasFiles()) {
+        e.acceptTransferModes(TransferMode.COPY);
+      }
 
-          e.consume();
-        });
+      e.consume();
+    });
 
-    dropArea.setOnDragDropped(
-        e -> {
-          Dragboard db = e.getDragboard();
-          boolean success = false;
-          if (db.hasFiles()) {
-            File file = db.getFiles().get(0);
-            if (isExcel(file)) {
-              try {
-                controller.loadfile(file); // status will change
-                success = true;
-              } catch (IOException ex) {
-                showError("Failed to load file");
-              }
-            } else {
-              showError("Please upload a valid .xlsx file");
-            }
+    dropArea.setOnDragDropped(e -> {
+      Dragboard db = e.getDragboard();
+      boolean success = false;
+      if (db.hasFiles()) {
+        File file = db.getFiles().get(0);
+        if (isExcel(file)) {
+          try {
+            controller.loadfile(file); // status will change
+            success = true;
+          } catch (IOException ex) {
+            showError("Failed to load file");
           }
-          e.setDropCompleted(success);
-          e.consume();
-        });
+        } else {
+          showError("Please upload a valid .xlsx file");
+        }
+      }
+      e.setDropCompleted(success);
+      e.consume();
+    });
 
     return root;
   }
@@ -98,14 +96,13 @@ public class DropBoxView implements FXComponent {
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
     alert.setTitle("Instructions");
     alert.setHeaderText("Excel Format Requirement");
-    alert.setContentText(
-        """
-                • Exactly 3 columns
-                • Column 1: German
-                • Column 2: English
-                • Column 3: Word Type
-                • First row must be headers
-                """);
+    alert.setContentText("""
+        • Exactly 3 columns
+        • Column 1: German
+        • Column 2: English
+        • Column 3: Word Type
+        • First row must be headers
+        """);
     alert.showAndWait();
   }
 
