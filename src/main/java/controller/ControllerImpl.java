@@ -41,4 +41,29 @@ public class ControllerImpl implements Controller {
   public void loadfile(File file) throws IOException {
     this.model.loadFromFile(file);
   }
+
+  @Override
+  public void viewMemory() {
+    this.model.showMemory();
+  }
+
+  @Override
+  public void clearMemory() {
+    this.model.clearMemory();
+  }
+
+  @Override
+  public void backToMenu() {
+    this.model.enterMenu();
+  }
+
+  @Override
+  public void uploadMoreWords() {
+    this.model.enterUpload();
+  }
+
+  @Override
+  public void startReading() {
+    this.model.startReading();
+  }
 }

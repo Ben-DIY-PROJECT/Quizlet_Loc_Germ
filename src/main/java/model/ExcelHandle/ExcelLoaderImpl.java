@@ -23,8 +23,8 @@ public class ExcelLoaderImpl implements ExcelLoader {
   public List<WordPair> load() throws IOException {
     List<WordPair> wordlist = new ArrayList<>();
 
-    try (FileInputStream fis = new FileInputStream(file);) {
-      Workbook workbook = new XSSFWorkbook(fis);
+    try (FileInputStream fis = new FileInputStream(file);
+        Workbook workbook = new XSSFWorkbook(fis)) {
 
       Sheet sheet = workbook.getSheetAt(0); // get the first sheet
 

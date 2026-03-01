@@ -2,28 +2,35 @@ package model;
 
 import model.ExcelHandle.ExcelLoader;
 import model.ExcelHandle.ExcelLoaderImpl;
+import model.Session.Session;
+import model.Session.SessionImpl;
 import model.Words.WordPair;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
 
 public class ModelImpl implements Model {
 
   private List<WordPair> words;
+  private List<WordPair> memoryWords;
   private int currentIndex;
   private boolean translationVisible;
   private STATUS status;
+  private final Session session;
 
   private final List<Observer> observers = new ArrayList<>();
 
   public ModelImpl() {
-    this.status = STATUS.NO_FILE;
+    this.status = STATUS.MENU;
     this.words = null;
+    this.memoryWords = new ArrayList<>();
     this.currentIndex = 0;
     this.translationVisible = false;
+    this.session = new SessionImpl();
   }
 
   @Override
@@ -54,6 +61,11 @@ public class ModelImpl implements Model {
   }
 
   @Override
+  public List<WordPair> getMemoryWords() {
+    return Collections.unmodifiableList(memoryWords);//make sure the list view cannot be changed
+  }
+
+  @Override
   public boolean isTranslationVisible() {
     return translationVisible;
   }
@@ -70,11 +82,56 @@ public class ModelImpl implements Model {
       throw new NoSuchElementException("Excel file contains no valid word pairs");
     }
 
+    session.upsertWordPairs(loaded);
+
     this.words = loaded;
     this.currentIndex = 0;
     this.translationVisible = false;
-    this.status = STATUS.READING;
+    this.status = STATUS.MENU;
 
+    notifyObservers();
+  }
+
+  @Override
+  public void showMemory() {
+    this.memoryWords = session.loadWordPairs();
+    this.status = STATUS.MEMORY;
+    notifyObservers();
+  }
+
+  @Override
+  public void clearMemory() {
+    session.clearCache();
+    this.memoryWords = new ArrayList<>();
+    this.words = null;
+    this.currentIndex = 0;
+    this.translationVisible = false;
+    notifyObservers();
+  }
+
+  @Override
+  public void enterMenu() {
+    this.status = STATUS.MENU;
+    notifyObservers();
+  }
+
+  @Override
+  public void enterUpload() {
+    this.status = STATUS.UPLOAD;
+    notifyObservers();
+  }
+
+  @Override
+  public void startReading() {
+    if (this.words == null || this.words.isEmpty()) {
+      this.words = session.loadWordPairs();
+    }
+    if (this.words == null || this.words.isEmpty()) {
+      return;
+    }
+    this.currentIndex = 0;
+    this.translationVisible = false;
+    this.status = STATUS.READING;
     notifyObservers();
   }
 
@@ -122,10 +179,9 @@ public class ModelImpl implements Model {
 
   @Override
   public void reset() { // when presses the exit button
-    this.words = null;
     this.currentIndex = 0;
     this.translationVisible = false;
-    this.status = STATUS.NO_FILE;
+    this.status = STATUS.MENU;
     notifyObservers();
   }
 

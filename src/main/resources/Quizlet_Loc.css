@@ -7,6 +7,11 @@
     -fx-background-color: transparent;
 }
 
+.top-actions {
+    -fx-alignment: center-right;
+    -fx-spacing: 8;
+}
+
 .title-box {
     -fx-alignment: center-left;
     -fx-pref-width: 300px;
@@ -25,6 +30,11 @@
 
 .info-button:hover {
     -fx-background-color: #333333;
+}
+
+.memory-entry-button {
+    -fx-font-size: 12;
+    -fx-cursor: hand;
 }
 
 .title-style {
@@ -98,6 +108,67 @@
 }
 
 .exit-button {
+    -fx-font-size: 14;
+    -fx-cursor: hand;
+}
+
+.menu-root {
+    -fx-padding: 20;
+}
+
+.menu-center {
+    -fx-alignment: center;
+    -fx-spacing: 14;
+}
+
+.menu-title {
+    -fx-font-size: 24;
+    -fx-font-weight: bold;
+}
+
+.menu-button {
+    -fx-font-size: 16;
+    -fx-min-width: 220;
+    -fx-min-height: 40;
+    -fx-cursor: hand;
+}
+
+.menu-secondary-button {
+    -fx-font-size: 13;
+    -fx-cursor: hand;
+}
+
+.memory-root {
+    -fx-padding: 20;
+}
+
+.memory-content {
+    -fx-spacing: 10;
+}
+
+.memory-title {
+    -fx-font-size: 22;
+    -fx-font-weight: bold;
+}
+
+.memory-count {
+    -fx-font-size: 14;
+}
+
+.memory-list {
+    -fx-pref-height: 220;
+}
+
+.memory-actions {
+    -fx-spacing: 10;
+}
+
+.memory-clear-button {
+    -fx-font-size: 14;
+    -fx-cursor: hand;
+}
+
+.memory-back-button {
     -fx-font-size: 14;
     -fx-cursor: hand;
 }

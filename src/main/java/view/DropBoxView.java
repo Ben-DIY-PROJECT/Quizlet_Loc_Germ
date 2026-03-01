@@ -33,16 +33,23 @@ public class DropBoxView implements FXComponent {
     infoButton.getStyleClass().add("info-button");
     infoButton.setOnAction(e -> showInfo());
 
+    Button backButton = new Button("Back to Home");
+    backButton.getStyleClass().add("menu-secondary-button");
+    backButton.setOnAction(e -> controller.backToMenu());
+
     Label title = new Label("Quizlet~Local Version");
     title.getStyleClass().add("title-style");
 
     HBox titleBox = new HBox(title);
     titleBox.getStyleClass().add("title-box");
 
+    HBox rightActions = new HBox(backButton, infoButton);
+    rightActions.getStyleClass().add("top-actions");
+
     BorderPane topBar = new BorderPane();
     topBar.getStyleClass().add("top-bar");
     topBar.setLeft(titleBox);
-    topBar.setRight(infoButton);
+    topBar.setRight(rightActions);
 
     root.setTop(topBar);
 

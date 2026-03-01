@@ -15,4 +15,14 @@ public interface Controller {
   void hidetrans();
 
   void loadfile(File file) throws IOException;
+
+  void viewMemory();
+
+  void clearMemory();
+
+  void backToMenu();
+
+  void uploadMoreWords();
+
+  void startReading();
 }
