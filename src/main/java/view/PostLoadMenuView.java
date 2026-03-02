@@ -1,11 +1,14 @@
 package view;
 
 import controller.Controller;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import model.Model;
 
@@ -51,10 +54,21 @@ public class PostLoadMenuView implements FXComponent {
   }
 
   private void showWarning(String msg) {
-    Alert alert = new Alert(Alert.AlertType.WARNING);
+    Alert alert = new Alert(Alert.AlertType.NONE);
     alert.setTitle("No Words Available");
     alert.setHeaderText(null);
-    alert.setContentText(msg);
+
+    Label icon = new Label("⚠");
+    icon.setStyle("-fx-font-size: 24;");
+
+    Label text = new Label(msg);
+    text.setWrapText(true);
+
+    HBox row = new HBox(12, icon, text);
+    row.setAlignment(Pos.CENTER_LEFT);
+
+    alert.getDialogPane().setContent(row);
+    alert.getButtonTypes().setAll(ButtonType.OK);
     alert.showAndWait();
   }
 }

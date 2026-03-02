@@ -7,51 +7,50 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import model.Model;
 import java.io.File;
 import java.io.IOException;
 
 public class DropBoxView implements FXComponent {
-  private final Model model;
   private final Controller controller;
 
-  public DropBoxView(Controller controller, Model model) {
+  public DropBoxView(Controller controller) {
     this.controller = controller;
-    this.model = model;
   }
 
   @Override
   public Parent render() {
-    BorderPane root = new BorderPane();
+    VBox root = new VBox();
     root.getStyleClass().add("dropbox-root");
 
     Button infoButton = new Button("!");
     infoButton.getStyleClass().add("info-button");
     infoButton.setOnAction(e -> showInfo());
 
-    Button backButton = new Button("Back to Home");
+    Label infoHint = new Label("Click here to learn about the required format.");
+    infoHint.getStyleClass().add("info-hint-label");
+
+    Button backButton = new Button("Back to Menu");
     backButton.getStyleClass().add("menu-secondary-button");
     backButton.setOnAction(e -> controller.backToMenu());
 
-    Label title = new Label("Quizlet~Local Version");
-    title.getStyleClass().add("title-style");
+    HBox topActions = new HBox(infoHint, infoButton);
+    topActions.getStyleClass().add("top-actions");
 
-    HBox titleBox = new HBox(title);
-    titleBox.getStyleClass().add("title-box");
+    Region spacer = new Region();
+    HBox.setHgrow(spacer, Priority.ALWAYS);
 
-    HBox rightActions = new HBox(backButton, infoButton);
-    rightActions.getStyleClass().add("top-actions");
+    HBox headerRow = new HBox(backButton, spacer, topActions);
+    headerRow.getStyleClass().add("top-bar");
 
-    BorderPane topBar = new BorderPane();
-    topBar.getStyleClass().add("top-bar");
-    topBar.setLeft(titleBox);
-    topBar.setRight(rightActions);
-
-    root.setTop(topBar);
+    Label sectionTitle = new Label("Upload your word list");
+    sectionTitle.getStyleClass().add("drop-subtitle");
+    HBox titleRow = new HBox(sectionTitle);
+    titleRow.getStyleClass().add("drop-title-row");
 
     StackPane dropArea = new StackPane();
     dropArea.getStyleClass().add("drop-area");
@@ -66,7 +65,15 @@ public class DropBoxView implements FXComponent {
     centerBox.getStyleClass().add("center-box");
 
     dropArea.getChildren().add(centerBox);
-    root.setCenter(dropArea);
+    HBox dropAreaRow = new HBox(dropArea);
+    dropAreaRow.getStyleClass().add("drop-area-row");
+
+    Label formatHint = new Label("Only .xlsx files are accepted");
+    formatHint.getStyleClass().add("drop-format-hint");
+    HBox formatRow = new HBox(formatHint);
+    formatRow.getStyleClass().add("drop-format-row");
+
+    root.getChildren().addAll(headerRow, titleRow, dropAreaRow, formatRow);
 
     dropArea.setOnDragOver(e -> {
       if (e.getDragboard().hasFiles()) {

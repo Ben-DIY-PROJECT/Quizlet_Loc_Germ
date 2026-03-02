@@ -23,13 +23,13 @@ public class View implements FXComponent, Observer {
       case MENU:
         return new PostLoadMenuView(controller, model).render();
       case NO_FILE, LOADING, UPLOAD:
-        return new DropBoxView(controller, model).render();
+        return new DropBoxView(controller).render();
       case MEMORY:
         return new MemoryView(controller, model).render();
       case READING:
         return new ReadingView(controller, model).render();
       default:
-        return new DropBoxView(controller, model).render();
+        return new DropBoxView(controller).render();
     }
   }
 

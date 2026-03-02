@@ -1,55 +1,102 @@
 .dropbox-root {
+    padding: 20px;
     -fx-padding: 20;
+    -fx-spacing: 14;
 }
 
 .top-bar {
-    -fx-padding: 10;
+    padding: 4px 4px 8px 4px;
+    -fx-padding: 4 4 8 4;
+    -fx-alignment: center-left;
+    background-color: transparent;
     -fx-background-color: transparent;
 }
 
 .top-actions {
     -fx-alignment: center-right;
-    -fx-spacing: 8;
-}
-
-.title-box {
-    -fx-alignment: center-left;
-    -fx-pref-width: 300px;
+    -fx-spacing: 6;
 }
 
 .info-button {
+    background-color: black;
     -fx-background-color: black;
+    color: white;
     -fx-text-fill: white;
+    font-size: 16px;
     -fx-font-size: 16;
+    font-weight: bold;
     -fx-font-weight: bold;
+    min-width: 32px;
     -fx-min-width: 32;
+    min-height: 32px;
     -fx-min-height: 32;
     -fx-background-radius: 16;
+    cursor: pointer;
     -fx-cursor: hand;
 }
 
 .info-button:hover {
+    background-color: #333333;
     -fx-background-color: #333333;
 }
 
+.info-hint-label {
+    font-size: 12px;
+    -fx-font-size: 12px;
+    color: #666666;
+    -fx-text-fill: #666666;
+    max-width: 360px;
+    -fx-max-width: 360;
+}
+
 .memory-entry-button {
+    font-size: 12px;
     -fx-font-size: 12;
+    cursor: pointer;
     -fx-cursor: hand;
 }
 
 .title-style {
+    font-size: 24px;
     -fx-font-size: 24px;
+    font-weight: bold;
     -fx-font-weight: bold;
+    color: black;
     -fx-text-fill: black;
-    -fx-translate-x: 135px;
+}
+
+.drop-title-row {
+    -fx-alignment: center;
+}
+
+.drop-area-row {
+    -fx-alignment: center;
+}
+
+.drop-format-row {
+    -fx-alignment: center;
+}
+
+.drop-subtitle {
+    font-size: 18px;
+    -fx-font-size: 18px;
+    font-weight: bold;
+    -fx-font-weight: bold;
 }
 
 .drop-area {
+    border-color: gray;
     -fx-border-color: gray;
+    border-width: 2px;
     -fx-border-width: 2;
+    border-style: dashed;
     -fx-border-style: dashed;
-    -fx-pref-width: 450;
+    -fx-pref-width: 500;
     -fx-pref-height: 300;
+    max-width: 500px;
+    -fx-max-width: 500;
+    max-height: 300px;
+    -fx-max-height: 300;
     -fx-alignment: center;
 }
 
@@ -59,20 +106,33 @@
 }
 
 .plus-label {
+    font-size: 48px;
     -fx-font-size: 48;
 }
 
 .hint-label {
+    font-size: 18px;
     -fx-font-size: 18;
+    color: #666666;
+    -fx-text-fill: #666666;
+}
+
+.drop-format-hint {
+    font-size: 13px;
+    -fx-font-size: 13px;
+    color: #666666;
     -fx-text-fill: #666666;
 }
 
 .reading-root {
+    padding: 20px;
     -fx-padding: 20;
 }
 
 .reading-title {
+    font-weight: bold;
     -fx-font-weight: bold;
+    font-size: 20px;
     -fx-font-size: 20;
 }
 
@@ -82,13 +142,18 @@
 }
 
 .german-word {
+    font-size: 32px;
     -fx-font-size: 32;
+    font-weight: bold;
     -fx-font-weight: bold;
 }
 
 .nav-button {
+    font-size: 18px;
     -fx-font-size: 18;
+    min-width: 40px;
     -fx-min-width: 40;
+    min-height: 40px;
     -fx-min-height: 40;
 }
 
@@ -98,21 +163,28 @@
 }
 
 .trans-word {
+    font-size: 24px;
     -fx-font-size: 24;
+    font-weight: bold;
     -fx-font-weight: bold;
 }
 
 .eye-button {
+    font-size: 14px;
     -fx-font-size: 14;
+    cursor: pointer;
     -fx-cursor: hand;
 }
 
 .exit-button {
+    font-size: 14px;
     -fx-font-size: 14;
+    cursor: pointer;
     -fx-cursor: hand;
 }
 
 .menu-root {
+    padding: 20px;
     -fx-padding: 20;
 }
 
@@ -122,23 +194,32 @@
 }
 
 .menu-title {
+    font-size: 24px;
     -fx-font-size: 24;
+    font-weight: bold;
     -fx-font-weight: bold;
 }
 
 .menu-button {
+    font-size: 16px;
     -fx-font-size: 16;
+    min-width: 220px;
     -fx-min-width: 220;
+    min-height: 40px;
     -fx-min-height: 40;
+    cursor: pointer;
     -fx-cursor: hand;
 }
 
 .menu-secondary-button {
+    font-size: 13px;
     -fx-font-size: 13;
+    cursor: pointer;
     -fx-cursor: hand;
 }
 
 .memory-root {
+    padding: 20px;
     -fx-padding: 20;
 }
 
@@ -147,11 +228,14 @@
 }
 
 .memory-title {
+    font-size: 22px;
     -fx-font-size: 22;
+    font-weight: bold;
     -fx-font-weight: bold;
 }
 
 .memory-count {
+    font-size: 14px;
     -fx-font-size: 14;
 }
 
@@ -164,11 +248,15 @@
 }
 
 .memory-clear-button {
+    font-size: 14px;
     -fx-font-size: 14;
+    cursor: pointer;
     -fx-cursor: hand;
 }
 
 .memory-back-button {
+    font-size: 14px;
     -fx-font-size: 14;
+    cursor: pointer;
     -fx-cursor: hand;
 }
